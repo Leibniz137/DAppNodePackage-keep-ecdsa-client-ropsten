@@ -1,0 +1,42 @@
+# Connection details of ethereum blockchain.
+[ethereum]
+URL = "{{ .WsRpcUrl }}"
+URLRPC = "{{ .HttpRpcUrl }}"
+
+[ethereum.account]
+Address = "{{ .Address }}"
+KeyFile = "/mnt/keystore/keep_wallet.json"
+
+# Addresses of contracts deployed on ethereum blockchain.
+[ethereum.ContractAddresses]
+BondedECDSAKeepFactory = "0xe7BF8421fBE80c3Bf67082370D86C8D81D1D77F4"
+
+[SanctionedApplications]
+Addresses = [
+  "0x41A1b40c1280883eA14C6a71e23bb66b83B3fB59",   # (tBTC’s system contract)
+]
+
+[tBTCSortitionpool]
+Addresses = [
+  "0x4b558ff45f08198e00cc13de2ccefb9998e0290e"
+]
+
+[Storage]
+DataDir = "/mnt/persistence"
+
+# Keep network configuration.
+[LibP2P]
+Peers = [
+{{- range .Peers }}
+  "{{ . }}",
+{{- end }}
+]
+# 3919 + 1 because 3919 is taken by keep-client
+Port = 3920
+
+[TSS]
+# Timeout for TSS protocol pre-parameters generation. The value
+# should be provided based on resources available on the machine running the client.
+# This is an optional parameter, if not provided timeout for TSS protocol
+# pre-parameters generation will be set to `2 minutes`.
+PreParamsGenerationTimeout = "2m30s"

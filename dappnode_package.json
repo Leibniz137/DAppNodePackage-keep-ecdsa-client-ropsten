@@ -1,0 +1,17 @@
+{
+  "name": "keep-ecdsa-client-ropsten.public.dappnode.eth",
+  "version": "0.1.0",
+  "description": "Run a Keep ECDSA Client on the Ropsten Testnet",
+  "type": "service",
+  "author": "thenateway",
+  "categories": [
+    "Developer tools"
+  ],
+  "links": {
+    "homepage": "https://github.com/Leibniz137/DAppNodePackage-keep-ecdsa-client-ropsten"
+  },
+  "license": "GLP-3.0",
+  "dependencies": {
+    "ropsten.dnp.dappnode.eth": "latest"
+  }
+}

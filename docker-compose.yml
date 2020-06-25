@@ -1,0 +1,20 @@
+version: '3.4'
+services:
+  keep-ecdsa-client-ropsten.public.dappnode.eth:
+    build: ./build
+    environment:
+      - 'HTTP_RPC_URL=http://ropsten.dappnode:8545/'
+      - KEEP_ETHEREUM_PASSWORD
+      - LOG_LEVEL=debug
+      - PEERS
+      - 'WS_RPC_URL=ws://ropsten.dappnode:8546/'
+    image: 'keep-ecdsa-client-ropsten.public.dappnode.eth:0.1.0'
+    restart: always
+    ports:
+      - '3920:3920'
+    volumes:
+      - 'persistence:/mnt/persistence'
+      - 'keystore:/mnt/keystore'
+volumes:
+  persistence: {}
+  keystore: {}
